@@ -54,7 +54,7 @@ def main(un, pwd):
 
 
 
-username = '17905134'
-password = '997865'
+username = ''
+password = ''
 main(username, password)
 browser.quit()
