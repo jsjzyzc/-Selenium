@@ -24,7 +24,7 @@ def login(un, pwd):
     ).click()
     # 等待网页跳转
     time.sleep(5)
-
+    browser.quit()
 
 
 
@@ -34,19 +34,27 @@ def main(un, pwd):
     while 1:
         return1 = os.system('ping www.baidu.com -c 2')
         if return1:
-            print('ping fail')
-            path = "/home/pi/geckodriver"
-            global browser
-            browser = webdriver.Firefox(executable_path=path)
-            browser.get('http://8.8.8.8')
-            login(un, pwd)
-            browser.quit()
+            try:
+                print('ping fail')
+                path = "/home/pi/geckodriver"
+                global browser
+                browser = webdriver.Firefox(executable_path=path)
+                browser.get('http://8.8.8.8')
+                login(un, pwd)
+                browser.quit()
+            except:
+                print("1")
+            finally:
+                browser.quit()
+                
+            
 
         else:
             print('ping ok')
 
 
 
-username = 'username'
-password = 'password'
+username = '17905134'
+password = '997865'
 main(username, password)
+browser.quit()
